@@ -1,0 +1,22 @@
+{
+    "name": "swagger-ui-lpkg",
+    "homepage": "https://github.com/arpanext/swagger-ui-lpkg.git",
+    "authors": [
+        "Arpanext <contact@arpanext.com>"
+    ],
+    "description": "",
+    "main": "",
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "src/public/components/",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "swagger-ui": "^3.34.0",
+        "jquery": "^3.4.1"
+    }
+}
