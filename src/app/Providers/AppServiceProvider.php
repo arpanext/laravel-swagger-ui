@@ -13,7 +13,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../../public/components' => public_path('vendor/arpanext/swagger-ui-lpkg/components'),
+            ], 'swagger-ui-lpkg');
+        }
     }
 
     /**
