@@ -1,5 +1,5 @@
 {
-    "name": "arpanext/swagger-ui-lpkg",
+    "name": "arpanext/laravel-swagger-ui",
     "authors": [
         {
             "name": "Arpanext",
@@ -12,14 +12,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Arpanext\\SwaggerUiLpkg\\": "/src/"
+            "Arpanext\\SwaggerUi\\": "/src/"
         }
     },
     "minimum-stability": "dev",
     "extra": {
         "laravel": {
             "providers": [
-                "Arpanext\\SwaggerUiLpkg\\App\\Providers\\AppServiceProvider"
+                "Arpanext\\SwaggerUi\\App\\Providers\\AppServiceProvider"
             ]
         }
     }

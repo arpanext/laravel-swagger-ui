@@ -1,6 +1,6 @@
 <?php
 
-namespace Arpanext\SwaggerUiLpkg\App\Providers;
+namespace Arpanext\SwaggerUi\App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -15,12 +15,12 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->router->group(
             [
-                'namespace' => 'Arpanext\SwaggerUiLpkg\App\Http\Controllers\Consoles',
+                'namespace' => 'Arpanext\SwaggerUi\App\Http\Controllers\Consoles',
                 'middleware' => [
                     //
                 ],
-                'as' => 'swagger-ui-lpkg.consoles.',
-                'prefix' => '/swagger-ui-lpkg/consoles',
+                'as' => 'swagger-ui.consoles.',
+                'prefix' => '/swagger-ui/consoles',
             ],
             function () {
                 require __DIR__ . '/../../routes/web.php';
@@ -29,24 +29,24 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->router->group(
             [
-                'namespace' => 'Arpanext\SwaggerUiLpkg\App\Http\Controllers\Api\Schemas',
+                'namespace' => 'Arpanext\SwaggerUi\App\Http\Controllers\Api\Schemas',
                 'middleware' => [
                     //
                 ],
-                'as' => 'api.v1.swagger-ui-lpkg.schemas.',
-                'prefix' => '/api/v1/swagger-ui-lpkg/schemas',
+                'as' => 'api.v1.swagger-ui.schemas.',
+                'prefix' => '/api/v1/swagger-ui/schemas',
             ],
             function () {
                 require __DIR__ . '/../../routes/api.php';
             }
         );
 
-        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'Arpanext/SwaggerUiLpkg');
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'Arpanext/SwaggerUi');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../../public/components' => public_path('vendor/arpanext/swagger-ui-lpkg/components'),
-            ], 'swagger-ui-lpkg');
+                __DIR__ . '/../../public/components' => public_path('vendor/arpanext/swagger-ui/components'),
+            ], 'swagger-ui');
         }
     }
 

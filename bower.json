@@ -1,6 +1,6 @@
 {
-    "name": "swagger-ui-lpkg",
-    "homepage": "https://github.com/arpanext/swagger-ui-lpkg.git",
+    "name": "swagger-ui",
+    "homepage": "https://github.com/arpanext/laravel-swagger-ui.git",
     "authors": [
         "Arpanext <contact@arpanext.com>"
     ],
