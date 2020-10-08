@@ -15,7 +15,7 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $urls = file_get_contents(url("/api/v1/swagger-ui/schemas"));
+        $urls = file_get_contents(url("/api/v1/swagger-api/schemas"));
 
         return $urls;
     }
