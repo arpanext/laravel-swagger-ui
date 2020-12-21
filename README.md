@@ -1,4 +1,4 @@
-# Laravel Swagger Ui
+# Laravel Swagger Web Ui
 
 ```shell script
 composer require arpanext/laravel-swagger-web-ui
