@@ -31,9 +31,7 @@ php artisan route:list
 curl http://127.0.0.1:8000/api/v1/swagger/hub
 ```
 
-```shell script
-curl http://127.0.0.1:8000/swagger/consoles
-```
+[Swagger UI](http://127.0.0.1:8000/swagger)
 
 ## Testing
 
