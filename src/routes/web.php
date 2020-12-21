@@ -1,3 +1,3 @@
 <?php
 
-Route::get('/', 'IndexController')->name('index');
+Route::get('/', 'Consoles\IndexController')->name('index');

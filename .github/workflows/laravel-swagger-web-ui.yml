@@ -1,0 +1,49 @@
+name: laravel-swagger-web-ui
+
+on:
+  push:
+    branches: [ master ]
+  #pull_request:
+  #  branches: [ master ]
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create a temp folder
+        run: mkdir -p /tmp/packages/arpanext/laravel-swagger-web-ui
+      - name: Move the package source
+        run: mv -v $(ls -A .) /tmp/packages/arpanext/laravel-swagger-web-ui
+      - name: Create a laravel project
+        run: composer create-project laravel/laravel .
+      - name: Move the package source
+        run: mv -v /tmp/packages .
+      - name: Register the package into the composer.json
+        run: sed -i '/"require"/i \ \ \ \ "repositories":[{ "type":"path","url":"./packages/arpanext/laravel-swagger-web-ui","options":{"symlink":true}}],' ./composer.json
+      - name: Dumps the autoloader
+        run: composer dumpautoload
+      - name: Install the package
+        run: composer require arpanext/laravel-swagger-web-ui
+      - name: Publish the package assets
+        run: php artisan vendor:publish --provider=Arpanext\\SwaggerUi\\App\\Providers\\AppServiceProvider --tag="swagger-ui"
+      - name: Create archive
+        run: tar -czvf /tmp/project.tar.gz .
+      - uses: actions/upload-artifact@v2
+        with:
+          name: artifact
+          path: /tmp/project.tar.gz
+  tests:
+    needs: [install]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: artifact
+          path: /tmp
+      - name: Extract archive
+        run: tar -xzvf /tmp/project.tar.gz
+      - name: Run tests
+        run: vendor/bin/phpunit packages/arpanext/laravel-swagger-web-ui --configuration=packages/arpanext/laravel-swagger-web-ui/phpunit.xml --coverage-text
+      
+

@@ -37,7 +37,7 @@
 <script>
     $(document).ready(function () {
         var request = $.ajax({
-            url: "{{ route('api.v1.swagger-ui.schemas.index') }}",
+            url: "{{ route('api.v1.swagger.hub.index') }}",
             method: "GET",
             dataType: "json"
         });

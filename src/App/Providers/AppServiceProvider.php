@@ -15,12 +15,12 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->router->group(
             [
-                'namespace' => 'Arpanext\SwaggerUi\App\Http\Controllers\Consoles',
+                'namespace' => 'Arpanext\SwaggerUi\App\Http\Controllers',
                 'middleware' => [
                     //
                 ],
-                'as' => 'swagger-ui.consoles.',
-                'prefix' => '/swagger-ui/consoles',
+                'as' => 'swagger.',
+                'prefix' => '/swagger',
             ],
             function () {
                 require __DIR__ . '/../../routes/web.php';
@@ -29,12 +29,12 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->router->group(
             [
-                'namespace' => 'Arpanext\SwaggerUi\App\Http\Controllers\Api\Schemas',
+                'namespace' => 'Arpanext\SwaggerUi\App\Http\Controllers\Api\Hub',
                 'middleware' => [
                     //
                 ],
-                'as' => 'api.v1.swagger-ui.schemas.',
-                'prefix' => '/api/v1/swagger-ui/schemas',
+                'as' => 'api.v1.swagger.hub.',
+                'prefix' => '/api/v1/swagger/hub',
             ],
             function () {
                 require __DIR__ . '/../../routes/api.php';

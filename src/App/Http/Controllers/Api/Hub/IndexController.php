@@ -1,6 +1,6 @@
 <?php
 
-namespace Arpanext\SwaggerUi\App\Http\Controllers\Api\Schemas;
+namespace Arpanext\SwaggerUi\App\Http\Controllers\Api\Hub;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -15,7 +15,7 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $urls = file_get_contents(url("/api/v1/swagger-api/schemas"));
+        $urls = file_get_contents(url("/api/v1/swagger/schemas"));
 
         return $urls;
     }
