@@ -44,6 +44,6 @@ jobs:
       - name: Extract archive
         run: tar -xzvf /tmp/project.tar.gz
       - name: Run tests
-        run: vendor/bin/phpunit packages/arpanext/laravel-swagger-web-ui --configuration=packages/arpanext/laravel-swagger-web-ui/phpunit.xml --coverage-text
+        run: XDEBUG_MODE=coverage vendor/bin/phpunit packages/arpanext/laravel-swagger-web-ui --configuration=packages/arpanext/laravel-swagger-web-ui/phpunit.xml --coverage-text
       
 
