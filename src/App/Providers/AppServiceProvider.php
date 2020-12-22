@@ -2,8 +2,8 @@
 
 namespace Arpanext\SwaggerUi\App\Providers;
 
+use Config;
 use Illuminate\Support\ServiceProvider;
-
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -46,6 +46,10 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/../../public/components' => public_path('vendor/arpanext/swagger-ui/components'),
+            ], 'swagger-ui');
+
+            $this->publishes([
+                __DIR__ . '/../../config' => config_path('vendor/arpanext/swagger-ui'),
             ], 'swagger-ui');
         }
     }

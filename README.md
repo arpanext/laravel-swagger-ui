@@ -19,19 +19,21 @@ php artisan route:list
 ```
 
 ```shell
-+--------+----------+-----------------------------------+------------------------------+----------------------------------------------------------------------+------------+
-| Domain | Method   | URI                               | Name                         | Action                                                               | Middleware |
-+--------+----------+-----------------------------------+------------------------------+----------------------------------------------------------------------+------------+
-|        | GET|HEAD | api/v1/swagger/hub                | api.v1.swagger.hub.index     | Arpanext\SwaggerUi\App\Http\Controllers\Api\Hub\IndexController      |            |
-|        | GET|HEAD | swagger                           | swagger.index                | Arpanext\SwaggerUi\App\Http\Controllers\Consoles\IndexController     |            |
-+--------+----------+-----------------------------------+------------------------------+----------------------------------------------------------------------+------------+
++--------+----------+-----------------------------------+-------------------------------+----------------------------------------------------------------------+------------+
+| Domain | Method   | URI                               | Name                          | Action                                                               | Middleware |
++--------+----------+-----------------------------------+-------------------------------+----------------------------------------------------------------------+------------+
+|        | GET|HEAD | api/v1/swagger/consoles           | api.v1.swagger.consoles.index | Arpanext\SwaggerUi\App\Http\Controllers\Api\Consoles\IndexController |            |
+|        | GET|HEAD | api/v1/swagger/consoles/{id}      | api.v1.swagger.consoles.show  | Arpanext\SwaggerUi\App\Http\Controllers\Api\Consoles\ShowController  |            |
+|        | GET|HEAD | swagger/consoles                  | swagger.consoles.index        | Arpanext\SwaggerUi\App\Http\Controllers\Consoles\IndexController     |            |
+|        | GET|HEAD | swagger/consoles/{id}             | swagger.consoles.show         | Arpanext\SwaggerUi\App\Http\Controllers\Consoles\ShowController      |            |
++--------+----------+-----------------------------------+-------------------------------+----------------------------------------------------------------------+------------+
 ```
 
 ```shell script
-curl http://127.0.0.1:8000/api/v1/swagger/hub
+curl http://127.0.0.1:8000/api/v1/swagger/consoles
 ```
 
-[http://127.0.0.1:8000/swagger](http://127.0.0.1:8000/swagger)
+[http://127.0.0.1:8000/swagger/consoles](http://127.0.0.1:8000/swagger/consoles)
 
 ## Testing
 

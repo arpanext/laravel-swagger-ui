@@ -19,14 +19,14 @@ class ShowController extends Controller
 
         foreach (config('vendor.arpanext.swagger-ui.consoles')[$id] as $schemas) {
             $schemas = file_get_contents($schemas['url']);
-
+            
             $schemas = json_decode($schemas);            
-
+            
             $urls = array_merge($urls, array_map(function ($schema) {
-                return $schema->url;
+                return $schema;
             }, $schemas));
         }
-
+        
         return response()->json($urls);
     }
 }

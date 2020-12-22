@@ -14,14 +14,10 @@ class IndexController extends Controller
      */
     public function __invoke()
     {
-        $consoles = array_map(function ($key) {
-            return (object) [
-                'id' => $key,
-            ];
-        }, array_keys(config('vendor.arpanext.swagger-ui.consoles')));
+        $consoles = (new \Arpanext\SwaggerUi\App\Http\Controllers\Api\Consoles\IndexController)()->content();
 
         return view('Arpanext/SwaggerUi::consoles.index', [
-            'consoles' => $consoles,
+            'consoles' => json_decode($consoles),
         ]);
     }
 }

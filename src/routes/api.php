@@ -1,5 +1,5 @@
 <?php
 
-Route::get('/', 'Consoles\IndexController')->name('consoles.index');
+Route::get('/consoles', 'Consoles\IndexController')->name('consoles.index');
 
-Route::get('/{id}', 'Consoles\ShowController')->name('consoles.show');
+Route::get('/consoles/{id}', 'Consoles\ShowController')->name('consoles.show');

@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Api;
 
 use Tests\TestCase;
 
-class ConsolesIndexTest extends TestCase
+class ConsolesShowTest extends TestCase
 {
     /**
      * Get many object.
@@ -13,7 +13,7 @@ class ConsolesIndexTest extends TestCase
      */
     public function testShow()
     {
-        $response = $this->get('http://127.0.0.1:8000/swagger/consoles');
+        $response = $this->get('http://127.0.0.1:8000/api/v1/swagger/consoles/swagger');
 
         $response->assertStatus(200);
     }
