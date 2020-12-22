@@ -1,11 +1,11 @@
 <?php
 
-namespace Arpanext\SwaggerUi\App\Http\Controllers\Api\Hub;
+namespace Arpanext\SwaggerUi\App\Http\Controllers\Consoles;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class ShowController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -13,10 +13,10 @@ class IndexController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function __invoke(string $id)
     {
-        $urls = file_get_contents(url("/api/v1/swagger/schemas"));
-
-        return $urls;
+        return view('Arpanext/SwaggerUi::consoles.show', [
+            'id' => $id,
+        ]);
     }
 }

@@ -1,27 +1,25 @@
 <?php
 
-namespace Arpanext\SwaggerUi\App\Http\Controllers\Consoles;
+namespace Arpanext\SwaggerUi\App\Http\Controllers\Api\Consoles;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class IndexController extends Controller
 {
     /**
      * Handle the incoming request.
      *
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
-    public function __invoke()
+    public function __invoke(): JsonResponse
     {
         $consoles = array_map(function ($key) {
-            return (object) [
+            return [
                 'id' => $key,
             ];
         }, array_keys(config('vendor.arpanext.swagger-ui.consoles')));
 
-        return view('Arpanext/SwaggerUi::consoles.index', [
-            'consoles' => $consoles,
-        ]);
+        return response()->json($consoles);
     }
 }

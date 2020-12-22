@@ -29,12 +29,12 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->router->group(
             [
-                'namespace' => 'Arpanext\SwaggerUi\App\Http\Controllers\Api\Hub',
+                'namespace' => 'Arpanext\SwaggerUi\App\Http\Controllers\Api',
                 'middleware' => [
                     //
                 ],
-                'as' => 'api.v1.swagger.hub.',
-                'prefix' => '/api/v1/swagger/hub',
+                'as' => 'api.v1.swagger.',
+                'prefix' => '/api/v1/swagger',
             ],
             function () {
                 require __DIR__ . '/../../routes/api.php';
@@ -57,6 +57,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        Config::get('vendor.arpanext.swagger-ui.consoles') ?: $this->mergeConfigFrom(__DIR__ . '/../../config/consoles.php', 'vendor.arpanext.swagger-ui.consoles');
     }
 }
