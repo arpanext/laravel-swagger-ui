@@ -1,11 +1,11 @@
-# Laravel Swagger Web Ui
+# Laravel Swagger Ui
 
 ## Installation
 
 Install the package via composer:
 
 ```shell script
-composer require arpanext/laravel-swagger-web-ui
+composer require arpanext/laravel-swagger-ui
 ```
 
 Publish the assets files with:
@@ -38,5 +38,5 @@ curl http://127.0.0.1:8000/api/v1/swagger/consoles
 ## Testing
 
 ```shell
-vendor/bin/phpunit vendor/arpanext/laravel-swagger-web-ui --configuration=vendor/arpanext/laravel-swagger-web-ui/phpunit.xml --do-not-cache-result --coverage-text --coverage-html=coverage/html/laravel-swagger-web-ui
+vendor/bin/phpunit vendor/arpanext/laravel-swagger-ui --configuration=vendor/arpanext/laravel-swagger-ui/phpunit.xml --do-not-cache-result --coverage-text --coverage-html=coverage/html/laravel-swagger-ui
 ```
