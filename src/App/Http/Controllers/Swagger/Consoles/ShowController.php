@@ -1,6 +1,6 @@
 <?php
 
-namespace Arpanext\SwaggerUi\App\Http\Controllers\Consoles;
+namespace Arpanext\Swagger\Consoles\App\Http\Controllers\Swagger\Consoles;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -15,7 +15,7 @@ class ShowController extends Controller
      */
     public function __invoke(string $id)
     {
-        return view('Arpanext/SwaggerUi::consoles.show', [
+        return view('Arpanext/Swagger/Consoles::consoles.show', [
             'id' => $id,
         ]);
     }

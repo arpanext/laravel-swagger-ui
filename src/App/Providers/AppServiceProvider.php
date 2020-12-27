@@ -1,6 +1,6 @@
 <?php
 
-namespace Arpanext\SwaggerUi\App\Providers;
+namespace Arpanext\Swagger\Consoles\App\Providers;
 
 use Config;
 use Illuminate\Support\ServiceProvider;
@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->router->group(
             [
-                'namespace' => 'Arpanext\SwaggerUi\App\Http\Controllers',
+                'namespace' => 'Arpanext\Swagger\Consoles\App\Http\Controllers',
                 'middleware' => [
                     //
                 ],
@@ -27,30 +27,16 @@ class AppServiceProvider extends ServiceProvider
             }
         );
 
-        $this->app->router->group(
-            [
-                'namespace' => 'Arpanext\SwaggerUi\App\Http\Controllers\Api',
-                'middleware' => [
-                    //
-                ],
-                'as' => 'api.v1.swagger.',
-                'prefix' => '/api/v1/swagger',
-            ],
-            function () {
-                require __DIR__ . '/../../routes/api.php';
-            }
-        );
-
-        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'Arpanext/SwaggerUi');
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'Arpanext/Swagger/Consoles');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../../public/components' => public_path('vendor/arpanext/swagger-ui/components'),
-            ], 'swagger-ui');
+                __DIR__ . '/../../public/components' => public_path('vendor/arpanext/swagger/consoles/components'),
+            ], 'swagger-consoles');
 
             $this->publishes([
-                __DIR__ . '/../../config' => config_path('vendor/arpanext/swagger-ui'),
-            ], 'swagger-ui');
+                __DIR__ . '/../../config' => config_path('vendor/arpanext'),
+            ], 'swagger-consoles');
         }
     }
 
@@ -61,6 +47,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        Config::get('vendor.arpanext.swagger-ui.consoles') ?: $this->mergeConfigFrom(__DIR__ . '/../../config/consoles.php', 'vendor.arpanext.swagger-ui.consoles');
+        Config::get('vendor.arpanext.swagger.consoles.index') ?: $this->mergeConfigFrom(__DIR__ . '/../../config/swagger/consoles/index.php', 'vendor.arpanext.swagger.consoles.index');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Arpanext\SwaggerUi\App\Http\Controllers\Consoles;
+namespace Arpanext\Swagger\Consoles\App\Http\Controllers\Swagger\Consoles;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,9 +14,9 @@ class IndexController extends Controller
      */
     public function __invoke()
     {
-        $consoles = (new \Arpanext\SwaggerUi\App\Http\Controllers\Api\Consoles\IndexController)()->content();
+        dd(Config::get('vendor.arpanext.swagger.consoles.index'));
 
-        return view('Arpanext/SwaggerUi::consoles.index', [
+        return view('Arpanext/Swagger/Consoles::consoles.index', [
             'consoles' => json_decode($consoles),
         ]);
     }

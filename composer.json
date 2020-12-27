@@ -13,14 +13,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Arpanext\\SwaggerUi\\": "/src/"
+            "Arpanext\\Swagger\\Consoles\\": "/src/"
         }
     },
     "minimum-stability": "dev",
     "extra": {
         "laravel": {
             "providers": [
-                "Arpanext\\SwaggerUi\\App\\Providers\\AppServiceProvider"
+                "Arpanext\\Swagger\\Consoles\\App\\Providers\\AppServiceProvider"
             ]
         }
     }
