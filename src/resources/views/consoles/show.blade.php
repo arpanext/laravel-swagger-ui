@@ -36,8 +36,9 @@
 <script src="/vendor/arpanext/swagger/consoles/components/jquery/dist/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
+
         var request = $.ajax({
-            url: "{{ route('api.v1.swagger.consoles.show', $id) }}",
+            url: "{{ $console->url }}",
             method: "GET",
             dataType: "json"
         });
@@ -50,34 +51,36 @@
                     name: item.url,
                     url: item.url,
                 });
+
+                // Begin Swagger UI call region
+                console.log(window.location.pathname);
+                const ui = SwaggerUIBundle({
+                    url: urls[0],
+                    urls: urls,
+                    dom_id: '#swagger-ui',
+                    deepLinking: true,
+                    presets: [
+                        SwaggerUIBundle.presets.apis,
+                        SwaggerUIStandalonePreset
+                    ],
+                    plugins: [
+                        SwaggerUIBundle.plugins.DownloadUrl
+                    ],
+                    layout: "StandaloneLayout",
+                    validatorUrl: "https://validator.swagger.io/validator",
+                    filter: true,
+                    withCredentials: true
+                })
+                // End Swagger UI call region
+                window.ui = ui
             });
 
-            // Begin Swagger UI call region
-            console.log(window.location.pathname);
-            const ui = SwaggerUIBundle({
-                url: urls[0],
-                urls: urls,
-                dom_id: '#swagger-ui',
-                deepLinking: true,
-                presets: [
-                    SwaggerUIBundle.presets.apis,
-                    SwaggerUIStandalonePreset
-                ],
-                plugins: [
-                    SwaggerUIBundle.plugins.DownloadUrl
-                ],
-                layout: "StandaloneLayout",
-                validatorUrl: "https://validator.swagger.io/validator",
-                filter: true,
-                withCredentials: true
-            })
-            // End Swagger UI call region
-            window.ui = ui
         });
 
         request.fail(function (jqXHR, textStatus) {
             alert("Request failed: " + textStatus);
         });
+
     });
 </script>
 </body>

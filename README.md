@@ -14,23 +14,27 @@ Publish the assets files with:
 php artisan vendor:publish --provider=Arpanext\\Swagger\\Consoles\\App\\Providers\\AppServiceProvider --tag="swagger-consoles"
 ```
 
+Update the config file in config/vendor/arpanext/swagger/schemas/index.php:
+
+```php
+return [
+    'swagger' => [
+        'url' => 'http://127.0.0.1:8000/api/v1/swagger/schemas',
+    ],
+];
+```
+
 ```shell
 php artisan route:list
 ```
 
 ```shell
-+--------+----------+-----------------------------------+-------------------------------+----------------------------------------------------------------------+------------+
-| Domain | Method   | URI                               | Name                          | Action                                                               | Middleware |
-+--------+----------+-----------------------------------+-------------------------------+----------------------------------------------------------------------+------------+
-|        | GET|HEAD | api/v1/swagger/consoles           | api.v1.swagger.consoles.index | Arpanext\Swagger\\Consoles\App\Http\Controllers\Api\Consoles\IndexController |            |
-|        | GET|HEAD | api/v1/swagger/consoles/{id}      | api.v1.swagger.consoles.show  | Arpanext\Swagger\\Consoles\App\Http\Controllers\Api\Consoles\ShowController  |            |
-|        | GET|HEAD | swagger/consoles                  | swagger.consoles.index        | Arpanext\Swagger\\Consoles\App\Http\Controllers\Consoles\IndexController     |            |
-|        | GET|HEAD | swagger/consoles/{id}             | swagger.consoles.show         | Arpanext\Swagger\\Consoles\App\Http\Controllers\Consoles\ShowController      |            |
-+--------+----------+-----------------------------------+-------------------------------+----------------------------------------------------------------------+------------+
-```
-
-```shell script
-curl http://127.0.0.1:8000/api/v1/swagger/consoles
++--------+----------+-----------------------------------+------------------------------+-----------------------------------------------------------------------------------+------------+
+| Domain | Method   | URI                               | Name                         | Action                                                                            | Middleware |
++--------+----------+-----------------------------------+------------------------------+-----------------------------------------------------------------------------------+------------+
+|        | GET|HEAD | swagger/consoles                  | swagger.consoles.index       | Arpanext\Swagger\Consoles\App\Http\Controllers\Swagger\Consoles\IndexController   |            |
+|        | GET|HEAD | swagger/consoles/{id}             | swagger.consoles.show        | Arpanext\Swagger\Consoles\App\Http\Controllers\Swagger\Consoles\ShowController    |            |
++--------+----------+-----------------------------------+------------------------------+-----------------------------------------------------------------------------------+------------+
 ```
 
 [http://127.0.0.1:8000/swagger/consoles](http://127.0.0.1:8000/swagger/consoles)
