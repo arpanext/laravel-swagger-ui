@@ -16,7 +16,7 @@ class ShowController extends Controller
      */
     public function __invoke(string $id)
     {
-        $console = (object) Config::get('vendor.arpanext.swagger.consoles')[$id];
+        $console = (object) Config::get('vendor.arpanext.swagger.consoles.ui.consoles')[$id];
 
         return view('Arpanext/Swagger/Consoles/Ui::consoles.show', [
             'console' => $console,
