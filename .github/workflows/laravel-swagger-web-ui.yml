@@ -1,4 +1,4 @@
-name: laravel-swagger-consoles
+name: laravel-swagger-consoles-ui-ui
 
 on:
   push:
@@ -12,21 +12,21 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Create a temp folder
-        run: mkdir -p /tmp/packages/arpanext/laravel-swagger-consoles
+        run: mkdir -p /tmp/packages/arpanext/laravel-swagger-consoles-ui
       - name: Move the package source
-        run: mv -v $(ls -A .) /tmp/packages/arpanext/laravel-swagger-consoles
+        run: mv -v $(ls -A .) /tmp/packages/arpanext/laravel-swagger-consoles-ui
       - name: Create a laravel project
         run: composer create-project laravel/laravel .
       - name: Move the package source
         run: mv -v /tmp/packages .
       - name: Register the package into the composer.json
-        run: sed -i '/"require"/i \ \ \ \ "repositories":[{ "type":"path","url":"./packages/arpanext/laravel-swagger-consoles","options":{"symlink":true}}],' ./composer.json
+        run: sed -i '/"require"/i \ \ \ \ "repositories":[{ "type":"path","url":"./packages/arpanext/laravel-swagger-consoles-ui","options":{"symlink":true}}],' ./composer.json
       - name: Dumps the autoloader
         run: composer dumpautoload
       - name: Install the package
-        run: composer require arpanext/laravel-swagger-consoles
+        run: composer require arpanext/laravel-swagger-consoles-ui
       - name: Publish the package assets
-        run: php artisan vendor:publish --provider=Arpanext\\Swagger\Consoles\\App\\Providers\\AppServiceProvider --tag="swagger-consoles"
+        run: php artisan vendor:publish --provider=Arpanext\\Swagger\Consoles\\Ui\\App\\Providers\\AppServiceProvider --tag="swagger-consoles-ui"
       - name: Create archive
         run: tar -czvf /tmp/project.tar.gz .
       - uses: actions/upload-artifact@v2
@@ -44,6 +44,6 @@ jobs:
       - name: Extract archive
         run: tar -xzvf /tmp/project.tar.gz
       - name: Run tests
-        run: XDEBUG_MODE=coverage vendor/bin/phpunit packages/arpanext/laravel-swagger-consoles --configuration=packages/arpanext/laravel-swagger-consoles/phpunit.xml --coverage-text
-      
+        run: XDEBUG_MODE=coverage vendor/bin/phpunit packages/arpanext/laravel-swagger-consoles-ui --configuration=packages/arpanext/laravel-swagger-consoles-ui/phpunit.xml --coverage-text
+
 
