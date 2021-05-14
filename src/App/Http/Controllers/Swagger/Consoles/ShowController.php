@@ -1,6 +1,6 @@
 <?php
 
-namespace Arpanext\Swagger\Consoles\App\Http\Controllers\Swagger\Consoles;
+namespace Arpanext\Swagger\Consoles\Ui\App\Http\Controllers\Swagger\Consoles;
 
 use Config;
 use App\Http\Controllers\Controller;
@@ -16,8 +16,8 @@ class ShowController extends Controller
      */
     public function __invoke(string $id)
     {
-        $console = (object) Config::get('vendor.arpanext.swagger.consoles.index')[$id];
-        
+        $console = (object) Config::get('vendor.arpanext.swagger.consoles')[$id];
+
         return view('Arpanext/Swagger/Consoles::consoles.show', [
             'console' => $console,
         ]);

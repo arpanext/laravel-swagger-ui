@@ -1,20 +1,20 @@
-# Laravel Swagger Consoles
+# Laravel Swagger Consoles Ui
 
 ## Installation
 
 Install the package via composer:
 
 ```shell script
-composer require arpanext/laravel-swagger-consoles
+composer require arpanext/laravel-swagger-consoles-ui
 ```
 
 Publish the assets files with:
 
 ```shell script
-php artisan vendor:publish --provider=Arpanext\\Swagger\\Consoles\\App\\Providers\\AppServiceProvider --tag="swagger-consoles"
+php artisan vendor:publish --provider=Arpanext\\Swagger\\Consoles\\Ui\\App\\Providers\\AppServiceProvider --tag="swagger-consoles-ui"
 ```
 
-Update the config file in config/vendor/arpanext/swagger/schemas/index.php:
+Update the config file in config/vendor/arpanext/swagger/consoles.php:
 
 ```php
 return [
@@ -32,15 +32,14 @@ php artisan route:list
 +--------+----------+-----------------------------------+------------------------------+-----------------------------------------------------------------------------------+------------+
 | Domain | Method   | URI                               | Name                         | Action                                                                            | Middleware |
 +--------+----------+-----------------------------------+------------------------------+-----------------------------------------------------------------------------------+------------+
-|        | GET|HEAD | swagger/consoles                  | swagger.consoles.index       | Arpanext\Swagger\Consoles\App\Http\Controllers\Swagger\Consoles\IndexController   |            |
-|        | GET|HEAD | swagger/consoles/{id}             | swagger.consoles.show        | Arpanext\Swagger\Consoles\App\Http\Controllers\Swagger\Consoles\ShowController    |            |
+|        | GET|HEAD | swagger/consoles/{id}             | swagger.consoles.show        | Arpanext\Swagger\Consoles\Ui\App\Http\Controllers\Swagger\Consoles\ShowController |            |
 +--------+----------+-----------------------------------+------------------------------+-----------------------------------------------------------------------------------+------------+
 ```
 
-[http://127.0.0.1:8000/swagger/consoles](http://127.0.0.1:8000/swagger/consoles)
+[http://127.0.0.1:8000/swagger/consoles/default](http://127.0.0.1:8000/swagger/consoles/default)
 
 ## Testing
 
 ```shell
-vendor/bin/phpunit vendor/arpanext/laravel-swagger-consoles --configuration=vendor/arpanext/laravel-swagger-consoles/phpunit.xml --do-not-cache-result --coverage-text --coverage-html=coverage/html/laravel-swagger-consoles
+vendor/bin/phpunit vendor/arpanext/laravel-swagger-consoles-ui --configuration=vendor/arpanext/laravel-swagger-consoles-ui/phpunit.xml --do-not-cache-result --coverage-text --coverage-html=coverage/html/laravel-swagger-consoles-ui
 ```

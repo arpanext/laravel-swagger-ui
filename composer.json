@@ -1,5 +1,5 @@
 {
-    "name": "arpanext/laravel-swagger-consoles",
+    "name": "arpanext/laravel-swagger-consoles-ui",
     "authors": [
         {
             "name": "Arpanext",
@@ -8,19 +8,19 @@
     ],
     "require": {
         "php": ">=7.2",
-        "laravel/framework": "^6.0|^7.0|^8.0",
+        "laravel/framework": "^6.0|^7.3.4|^8.0",
         "swagger-api/swagger-ui": "^3.38"
     },
     "autoload": {
         "psr-4": {
-            "Arpanext\\Swagger\\Consoles\\": "/src/"
+            "Arpanext\\Swagger\\Consoles\\Ui\\": "/src/"
         }
     },
     "minimum-stability": "dev",
     "extra": {
         "laravel": {
             "providers": [
-                "Arpanext\\Swagger\\Consoles\\App\\Providers\\AppServiceProvider"
+                "Arpanext\\Swagger\\Consoles\\Ui\\App\\Providers\\AppServiceProvider"
             ]
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Arpanext\Swagger\Consoles\App\Providers;
+namespace Arpanext\Swagger\Consoles\Ui\App\Providers;
 
 use Config;
 use Illuminate\Support\ServiceProvider;
@@ -32,11 +32,11 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/../../public/components' => public_path('vendor/arpanext/swagger/consoles/components'),
-            ], 'swagger-consoles');
+            ], 'swagger-consoles-ui');
 
             $this->publishes([
                 __DIR__ . '/../../config' => config_path('vendor/arpanext'),
-            ], 'swagger-consoles');
+            ], 'swagger-consoles-ui');
         }
     }
 
@@ -47,6 +47,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        Config::get('vendor.arpanext.swagger.consoles.index') ?: $this->mergeConfigFrom(__DIR__ . '/../../config/swagger/consoles/index.php', 'vendor.arpanext.swagger.consoles.index');
+        Config::get('vendor.arpanext.swagger.consoles') ?: $this->mergeConfigFrom(__DIR__ . '/../../config/swagger/consoles.php', 'vendor.arpanext.swagger.consoles');
     }
 }

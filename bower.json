@@ -1,6 +1,6 @@
 {
-    "name": "swagger-ui",
-    "homepage": "https://github.com/arpanext/laravel-swagger-ui.git",
+    "name": "laravel-swagger-consoles-ui",
+    "homepage": "https://github.com/arpanext/laravel-swagger-consoles-ui.git",
     "authors": [
         "Arpanext <contact@arpanext.com>"
     ],
