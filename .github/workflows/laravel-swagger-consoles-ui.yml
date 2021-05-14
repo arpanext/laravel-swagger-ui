@@ -1,4 +1,4 @@
-name: laravel-swagger-consoles-ui-ui
+name: laravel-swagger-consoles-ui
 
 on:
   push:
