@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->router->group(
             [
-                'namespace' => 'Arpanext\Swagger\Consoles\App\Http\Controllers',
+                'namespace' => 'Arpanext\Swagger\Consoles\Ui\App\Http\Controllers',
                 'middleware' => [
                     //
                 ],
@@ -27,11 +27,11 @@ class AppServiceProvider extends ServiceProvider
             }
         );
 
-        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'Arpanext/Swagger/Consoles');
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'Arpanext/Swagger/Consoles/Ui');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../../public/components' => public_path('vendor/arpanext/swagger/consoles/components'),
+                __DIR__ . '/../../public/components' => public_path('vendor/arpanext/swagger/consoles/ui/components'),
             ], 'swagger-consoles-ui');
 
             $this->publishes([

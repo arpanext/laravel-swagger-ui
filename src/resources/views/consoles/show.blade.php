@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Swagger UI</title>
     <link rel="stylesheet" type="text/css"
-          href="/vendor/arpanext/swagger/consoles/components/swagger-ui/dist/swagger-ui.css">
+          href="/vendor/arpanext/swagger/consoles/ui/components/swagger-ui/dist/swagger-ui.css">
     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"/>
     <style>
@@ -31,9 +31,9 @@
 <body>
 
 <div id="swagger-ui"></div>
-<script src="/vendor/arpanext/swagger/consoles/components/swagger-ui/dist/swagger-ui-bundle.js"></script>
-<script src="/vendor/arpanext/swagger/consoles/components/swagger-ui/dist/swagger-ui-standalone-preset.js"></script>
-<script src="/vendor/arpanext/swagger/consoles/components/jquery/dist/jquery.min.js"></script>
+<script src="/vendor/arpanext/swagger/consoles/ui/components/swagger-ui/dist/swagger-ui-bundle.js"></script>
+<script src="/vendor/arpanext/swagger/consoles/ui/components/swagger-ui/dist/swagger-ui-standalone-preset.js"></script>
+<script src="/vendor/arpanext/swagger/consoles/ui/components/jquery/dist/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
 
