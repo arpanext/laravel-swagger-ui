@@ -2,9 +2,9 @@
 
 namespace Arpanext\Swagger\Consoles\Ui\App\Http\Controllers\Swagger\Consoles;
 
-use Config;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Config;
 
 class ShowController extends Controller
 {

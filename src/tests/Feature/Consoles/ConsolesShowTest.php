@@ -13,7 +13,7 @@ class ConsolesShowTest extends TestCase
      */
     public function testShow()
     {
-        $response = $this->get('http://127.0.0.1:8000/swagger/consoles/swagger');
+        $response = $this->get('http://127.0.0.1:8000/swagger/consoles/default');
 
         $response->assertStatus(200);
     }
